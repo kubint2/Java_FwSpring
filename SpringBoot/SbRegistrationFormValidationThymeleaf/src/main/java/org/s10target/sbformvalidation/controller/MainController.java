@@ -1,13 +1,13 @@
-package org.o7planning.sbformvalidation.controller;
+package org.s10target.sbformvalidation.controller;
  
 import java.util.List;
  
-import org.o7planning.sbformvalidation.dao.AppUserDAO;
-import org.o7planning.sbformvalidation.dao.CountryDAO;
-import org.o7planning.sbformvalidation.formbean.AppUserForm;
-import org.o7planning.sbformvalidation.model.AppUser;
-import org.o7planning.sbformvalidation.model.Country;
-import org.o7planning.sbformvalidation.validator.AppUserValidator;
+import org.s10target.sbformvalidation.dao.AppUserDAO;
+import org.s10target.sbformvalidation.dao.CountryDAO;
+import org.s10target.sbformvalidation.formbean.AppUserForm;
+import org.s10target.sbformvalidation.model.AppUser;
+import org.s10target.sbformvalidation.model.Country;
+import org.s10target.sbformvalidation.validator.AppUserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 // import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package org.o7planning.sbformvalidation.dao;
+package org.s10target.sbformvalidation.dao;
  
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
  
-import org.o7planning.sbformvalidation.formbean.AppUserForm;
-import org.o7planning.sbformvalidation.model.AppUser;
-import org.o7planning.sbformvalidation.model.Gender;
+import org.s10target.sbformvalidation.formbean.AppUserForm;
+import org.s10target.sbformvalidation.model.AppUser;
+import org.s10target.sbformvalidation.model.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;

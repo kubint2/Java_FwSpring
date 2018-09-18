@@ -1,9 +1,9 @@
-package org.o7planning.sbformvalidation.validator;
+package org.s10target.sbformvalidation.validator;
  
 import org.apache.commons.validator.routines.EmailValidator;
-import org.o7planning.sbformvalidation.dao.AppUserDAO;
-import org.o7planning.sbformvalidation.formbean.AppUserForm;
-import org.o7planning.sbformvalidation.model.AppUser;
+import org.s10target.sbformvalidation.dao.AppUserDAO;
+import org.s10target.sbformvalidation.formbean.AppUserForm;
+import org.s10target.sbformvalidation.model.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -36,7 +36,7 @@ public class AppUserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty.appUserForm.email");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty.appUserForm.password");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "NotEmpty.appUserForm.confirmPassword");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "gender", "NotEmpty.appUserForm.gender");
+        //ValidationUtils.rejectIfEmptyOrWhitespace(errors, "gender", "NotEmpty.appUserForm.gender");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "countryCode", "NotEmpty.appUserForm.countryCode");
  
         if (!this.emailValidator.isValid(appUserForm.getEmail())) {

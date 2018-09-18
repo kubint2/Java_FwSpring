@@ -1,4 +1,4 @@
-package org.o7planning.sbformvalidation.model;
+package org.s10target.sbformvalidation.model;
  
 public class Country {
  

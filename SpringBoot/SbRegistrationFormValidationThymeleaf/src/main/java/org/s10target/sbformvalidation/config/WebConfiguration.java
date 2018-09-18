@@ -1,4 +1,4 @@
-package org.o7planning.sbformvalidation.config;
+package org.s10target.sbformvalidation.config;
  
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

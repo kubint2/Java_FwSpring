@@ -1,11 +1,11 @@
-package org.o7planning.sbformvalidation.dao;
+package org.s10target.sbformvalidation.dao;
  
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
  
-import org.o7planning.sbformvalidation.model.Country;
+import org.s10target.sbformvalidation.model.Country;
 import org.springframework.stereotype.Repository;
  
 @Repository
