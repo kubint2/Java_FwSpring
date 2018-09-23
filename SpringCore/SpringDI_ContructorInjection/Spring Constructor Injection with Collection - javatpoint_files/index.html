@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- saved from url=(1654)https://html5.adsrvr.org/os9wege5/58ts3n4/um5stepd/index.html?clickTAG=http%3A%2F%2Finsight.adsrvr.org%2Ftrack%2Fclk%3Fimp%3D55f507f4-5404-47d0-9701-d490457cec46%26ag%3Dhl08yxd%26sfe%3Dddeb5bf%26sig%3DyaQtFmVAG7cS79z_wk53BJ2wBsOBFJKuk6fwiObaPco.%26crid%3D2156g7yb%26cf%3D529100%26fq%3D1%26td_s%3Dwww.javatpoint.com%26rcats%3Dh26%2Ctwb%2Cjba%26mcat%3Djba%26mste%3D%26mfld%3D3%26mssi%3Di9n0n2lkks%26mfsi%3D1fs5fzxys5%26sv%3Dgoogle%26uhow%3D13%26agsa%3D%26rgco%3DVietnam%26rgre%3DHo%2520Chi%2520Minh%26rgme%3D%26rgci%3DHo%2520Chi%2520Minh%2520City%26rgz%3D%26dt%3DPC%26osf%3DWindows%26os%3DWindows7%26br%3DChrome%26svpid%3Dpub-4699858549023382%26rlangs%3Den%26mlang%3D%26did%3D%26rcxt%3DOther%26tmpc%3D25%26vrtd%3D%26osi%3D%26osv%3D%26daid%3D%26dnr%3D0%26vpb%3D%26svsc%3D%26dur%3D%26crrelr%3D%26npt%3D%26svscid%3Dpub-4699858549023382%26mdl%3DChrome%2520-%2520Windows%26atst%3D1%26r%3Dhttps://adclick.g.doubleclick.net/aclk%3Fsa%3Dl%26ai%3DCIiSevzWnW9OZHs_AgAO7mLioAtThrflRloKgjlfAjbcBEAEgAGDBtfoNggEXY2EtcHViLTQ2OTk4NTg1NDkwMjMzODKgAdqG8-gDyAEJqAMBqgTwAU_QjOoxUW1EjZ7CzPK2QplCELBeyGHhtQfiPpNLxTdP7DQG1IbXo8i_qRzD_1MsqLm0FeiX7ovc1vKYeC_YzfXZoo1rqY1-A5POVhzA0_Ws25NWlTCMB-Qs-jIMyFILPCzP5laP0h5Dk8PnxI6qYQ1F3J3iRW_QsylEnULSmwN18q34Uv_cEmf2OSdhMc9S2GC_ViSiSqnC4svhy5bPPbUbCjfzAIySG9Hb105w5bIIwgo3eCaoUl_s7WTsYrBd7upES91XfZbS_lb-Uo3dGZ6pl-oFmZdnltJiSeo5hRRVH9YfFn05psanExZIEZIWu4AG86OBxIaZ3q-qAaAGIagHpr4bqAfZyxuoB8_MG9gHANIIBQiAARAB%26num%3D1%26sig%3DAOD64_3sN01BiVJp6bkrodMi2kLR8b7seA%26client%3Dca-pub-4699858549023382%26adurl%3Dhttps%3a%2f%2fwww.chanchao.com.tw%2fwebdm%2f2018%2fVietnam%2fPlas%2fvn%2f7th%2f%3futm_source%3dAmbient%26utm_medium%3dPC&cb=784434 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="ad.size" content="width=160,height=600">
+<title>160x600</title>
+
+<script src="./tweenjs-0.6.1.min.js.download"></script>
+<script src="./easeljs-0.8.1.min_2.js.download"></script>
+<script src="./movieclip-0.8.1.min.js.download"></script>
+<script src="./preloadjs-0.6.1.min.js.download"></script>
+<script src="./160x600.js.download"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete(evt) {
+	exportRoot = new lib._160x600();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+	stage.enableMouseOver();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+
+function getClickUrl(name) {
+    return getParameterByName('agclick_'+name) || getParameterByName(name);
+}
+var clickTag = getClickUrl('clickTAG') || getClickUrl('clickTag') || getClickUrl('clicktag');
+
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4; margin: 0px;">
+	<canvas id="canvas" width="160" height="600" style="background-color:#FFFFFF"></canvas>
+
+</body></html>
