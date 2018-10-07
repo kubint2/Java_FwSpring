@@ -1,0 +1,76 @@
+/* ---------------------------------------------------------------------- */
+/* Add table "customer"                                        */
+/* ---------------------------------------------------------------------- */
+
+CREATE TABLE customer (
+    code CHARACTER VARYING(20)  NOT NULL,
+    namecustomer CHARACTER VARYING(20),
+    phone CHARACTER VARYING(100),
+    address CHARACTER VARYING(40),
+    note CHARACTER VARYING(20),
+	created_date TIMESTAMP,
+    modified_date TIMESTAMP,
+    CONSTRAINT PK_customer PRIMARY KEY (code)
+);
+
+
+/* ---------------------------------------------------------------------- */
+/* Add table "product"                                        */
+/* ---------------------------------------------------------------------- */
+
+CREATE TABLE product (
+    code CHARACTER VARYING(20)  NOT NULL,
+    nameproduct CHARACTER VARYING(20),
+    note CHARACTER VARYING(20),
+	created_date TIMESTAMP,
+    modified_date TIMESTAMP,
+    CONSTRAINT PK_product PRIMARY KEY (code)
+);
+
+/* ---------------------------------------------------------------------- */
+/* Add table "invoice"                                        */
+/* ---------------------------------------------------------------------- */
+
+CREATE TABLE invoice (
+    code CHARACTER VARYING(20)  NOT NULL,
+	dateimport DATE,
+	note CHARACTER VARYING(20),
+    CONSTRAINT PK_invoice PRIMARY KEY (code)
+);
+
+CREATE TABLE invdetail(
+    code CHARACTER VARYING(20)  NOT NULL,
+	codeInvoice CHARACTER VARYING(20)  NOT NULL,
+	idproduct CHARACTER VARYING(20),
+	nameproduct CHARACTER VARYING(20),
+	priceimp NUMERIC,
+	currency CHARACTER VARYING(3),
+	pricetransport NUMERIC,
+	priceother NUMERIC,
+    numberimport NUMERIC,
+	--numbersell NUMERIC,
+    note CHARACTER VARYING(20),
+	created_date TIMESTAMP,
+    modified_date TIMESTAMP,
+    CONSTRAINT PK_invdetail PRIMARY KEY (code)
+);
+
+CREATE TABLE receive(
+    code CHARACTER VARYING(20)  NOT NULL,
+	codeInvoiceDetail CHARACTER VARYING(20)  NOT NULL,
+	codecustomer CHARACTER VARYING(20)  NOT NULL,
+	namecustomer CHARACTER VARYING(20),
+	numbersell NUMERIC,
+	pricesell NUMERIC,
+	priceimport NUMERIC,
+	priceother NUMERIC,
+	currency CHARACTER VARYING(3),
+	receivemoney NUMERIC,
+	created_date TIMESTAMP,
+    modified_date TIMESTAMP,
+    CONSTRAINT PK_receive PRIMARY KEY (code)
+);
+
+
+
+
