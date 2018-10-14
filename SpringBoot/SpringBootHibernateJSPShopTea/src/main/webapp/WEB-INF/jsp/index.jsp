@@ -7,7 +7,7 @@
                 href="${pageContext.request.contextPath}/css/style.css"/>
    </head>
    <body>
-      <h1>Welcome</h1>
+      <h1>Welcome hello</h1>
       <h2>${message}</h2>
        
       <div>

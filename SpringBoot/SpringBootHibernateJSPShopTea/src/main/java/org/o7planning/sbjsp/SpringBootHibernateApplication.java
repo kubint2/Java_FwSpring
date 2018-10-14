@@ -17,6 +17,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
  
 @SpringBootApplication
  
@@ -33,7 +37,40 @@ public class SpringBootHibernateApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootHibernateApplication.class, args);
     }
- 
+   
+    @Bean
+    public JpaTransactionManager jpaTransactionManager() {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+        return transactionManager;
+    }
+    
+    @Bean("org_postgresql_Driver")
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean em 
+          = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(getDataSource());
+        em.setPackagesToScan(new String[] { "org.o7planning.sbjsp.choishop.domain" });
+   
+        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaProperties(additionalProperties());
+   
+        return em;
+     }
+    
+    Properties additionalProperties() {
+        Properties properties = new Properties();
+        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+        // Fix Postgres JPA Error:
+        // Method org.postgresql.jdbc.PgConnection.createClob() is not yet implemented.
+         properties.put("hibernate.temp.use_jdbc_metadata_defaults",false);
+         properties.put("spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults",false);
+         
+        properties.put("hibernate.dialect", env.getProperty("spring.jpa.properties.hibernate.dialect"));
+        return properties;
+    }
+    
     @Bean(name = "dataSource")
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -80,12 +117,13 @@ public class SpringBootHibernateApplication {
         return sf;
     }
  
-    @Autowired
-    @Bean(name = "transactionManager")
-    public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
- 
-        return transactionManager;
-    }
+	//    @Autowired
+	//    @Bean(name = "transactionManager")
+	//    public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
+	//        HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
+	// 
+	//        return transactionManager;
+	//    }
+    
      
 }
